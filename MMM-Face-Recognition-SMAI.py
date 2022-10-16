@@ -1,16 +1,16 @@
-# SMAI V1.01 - Face Recognition Module
-
-# Modified by: Pratik & Eben
-# This is a modified script from the open source face recognition repo:
-#https://github.com/ageitgey/face_recognition
-# Patch update to fix bugs
+#Patch do projeto MMM-FaceRecognition
+#Suporte para detecção emocional para o projeto
+#uMirror
 
 import face_recognition
+import send2server
+# import emotion_dec
 import picamera
 import numpy as np
 import sys
 import os
 import time
+import cv2
 
 # Get a reference to the Raspberry Pi camera.
 # If this fails, make sure you have a camera connected to the RPi and that you
@@ -29,6 +29,7 @@ face_locations = []
 face_encodings = []
 
 id_check = 0
+send2server();
 
 while True:
     print("Capturing image.")
@@ -72,4 +73,5 @@ while True:
         
     f = open("/home/pi/MagicMirror/modules/MMM-Face-Recognition-SMAI/sample.txt", "w")
     f.write(face_id)
+    
     f.close()
